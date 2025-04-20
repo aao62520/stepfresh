@@ -1,0 +1,141 @@
+:root {
+    --primary-color: #1abc9c;
+    --secondary-color: #ffffff;
+    --text-color: #2c3e50;
+    --bg-light: #f4f4f4;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  header {
+    background: var(--primary-color);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  nav ul li {
+    margin: 10px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  section {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+  }
+  
+  .box {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .box ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .box button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .box button:hover {
+    background: #16a085;
+  }
+  
+  blockquote {
+    background: white;
+    border-left: 5px solid var(--primary-color);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin-top: 10px;
+  }
+  
+  form input,
+  form textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  form button {
+    margin-top: 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background: #16a085;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--primary-color);
+    color: white;
+  }
+  
