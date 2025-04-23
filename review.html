@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StepFresh - Reviews</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>StepFresh</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="subscriptions.html">Subscription Boxes</a></li>
+        <li><a href="samples.html">Sample Kits</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="review.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="reviews">
+    <h2>Leave a Review</h2>
+    <form id="reviewForm">
+      <label for="reviewText">Your Review:</label>
+      <textarea id="reviewText" required></textarea>
+      <div class="stars">
+        <input type="radio" id="star5" name="rating" value="5" hidden>
+        <label for="star5">★</label>
+        <input type="radio" id="star4" name="rating" value="4" hidden>
+        <label for="star4">★</label>
+        <input type="radio" id="star3" name="rating" value="3" hidden>
+        <label for="star3">★</label>
+        <input type="radio" id="star2" name="rating" value="2" hidden>
+        <label for="star2">★</label>
+        <input type="radio" id="star1" name="rating" value="1" hidden>
+        <label for="star1">★</label>
+      </div>
+      <button type="submit">Submit Review</button>
+    </form>
+
+    <div class="review-box" id="reviewList">
+      <h3>Published Reviews</h3>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 StepFresh. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const reviewForm = document.getElementById('reviewForm');
+    const reviewList = document.getElementById('reviewList');
+
+    // Load saved reviews from localStorage
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedReviews = JSON.parse(localStorage.getItem('stepfreshReviews')) || [];
+      savedReviews.forEach(({ text, rating }) => {
+        addReviewToDOM(text, rating);
+      });
+    });
+
+    // Handle form submission
+    reviewForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const text = document.getElementById('reviewText').value;
+      const rating = document.querySelector('input[name="rating"]:checked');
+
+      if (!rating) return alert("Please select a star rating.");
+
+      const newReview = { text, rating: rating.value };
+      addReviewToDOM(text, rating.value);
+
+      // Save to localStorage
+      const reviews = JSON.parse(localStorage.getItem('stepfreshReviews')) || [];
+      reviews.push(newReview);
+      localStorage.setItem('stepfreshReviews', JSON.stringify(reviews));
+
+      reviewForm.reset();
+    });
+
+    // Helper to add review to DOM
+    function addReviewToDOM(text, rating) {
+      const div = document.createElement('div');
+      div.classList.add('review-item');
+      div.innerHTML = `<p>${text}</p><p>Rating: ${rating} ★</p>`;
+      reviewList.appendChild(div);
+    }
+  </script>
+</body>
+</html>
